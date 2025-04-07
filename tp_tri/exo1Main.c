@@ -46,8 +46,9 @@ int main() {
 
     TriABulleNom(med, taille);
     int debut = 0;
-        int fin = 3;
-        recherche_dicho(debut, fin, med);
+    int fin = 3;
+    recherche_dicho(debut, fin, med);
+    TriABullePrix(med, taille);
 
   
 

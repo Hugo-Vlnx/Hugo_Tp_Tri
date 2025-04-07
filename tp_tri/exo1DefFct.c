@@ -114,6 +114,35 @@ void TriABulleNom(Meds** med, int taille) {
     }
 }
 
+void TriABullePrix(Meds** med, int taille) {
+    if (!med) {
+        return;
+    }
+    for (int a = 0; a < taille; a++) {
+        if (!med[a]) {
+            return;
+        }
+    }
+    int i, j;
+    int swapped;
+
+    for (i = 0; i < taille - 1; i++) {
+        swapped = 0;
+        for (j = 0; j < taille - i - 1; j++) {
+            if (med[j]->prix > med[j + 1]->prix) {
+                swap(med[j], med[j + 1]);
+                swapped = 1;
+            }
+            
+        }
+        printf("\nle plus cher est le %s - fabriquer le %d, expire le %d - code %s - prix : %.2f ", med[taille-1]->nom, med[taille - 1]->dateFab, med[taille - 1]->datePer, med[taille - 1]->code, med[taille - 1]->prix);
+        printf("\n");
+
+        if (swapped == 0)
+            break;
+    }
+}
+
 
 
 void recherche_dicho(int debut, int fin, Meds**med) {
