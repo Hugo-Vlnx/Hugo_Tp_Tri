@@ -15,7 +15,7 @@ Meds* definirMed() {
 
     Meds* med = malloc(sizeof(Meds));
 
-    //med->prix = 0;
+    med->prix = 0;
     printf("\n Nouveau  medicament ");
     printf("entrez la date de péremption AAAAMM :");
     scanf_s("%d", &med->datePer);
@@ -58,33 +58,33 @@ void afficherTab(Meds** med, int taille) {
 }
 
 
-//void TriABulle(Meds** med, int taille) {
-//    if (!med) {
-//        return;
-//    }
-//    for (int a = 0; a < taille; a++) {
-//        if (!med[a]) {
-//            return;
-//        }
-//    }
-//    int i, j;
-//    int swapped;
-//   
-//    for (i = 0; i < taille - 1; i++) {
-//        swapped = 0;
-//        for (j = 0; j < taille - i - 1; j++) {
-//            if (med[j]->datePer > med[j + 1]->datePer) {
-//                swap(med[j], med[j + 1]);
-//                swapped = 1;
-//            }
-//            afficherTab(med, taille);
-//        }
-//        printf("\n");
-//      
-//        if (swapped == 0)
-//            break;
-//    }
-//}
+void TriABulle(Meds** med, int taille) {
+    if (!med) {
+        return;
+    }
+    for (int a = 0; a < taille; a++) {
+        if (!med[a]) {
+            return;
+        }
+    }
+    int i, j;
+    int swapped;
+   
+    for (i = 0; i < taille - 1; i++) {
+        swapped = 0;
+        for (j = 0; j < taille - i - 1; j++) {
+            if (med[j]->datePer > med[j + 1]->datePer) {
+                swap(med[j], med[j + 1]);
+                swapped = 1;
+            }
+            afficherTab(med, taille);
+        }
+        printf("\n");
+      
+        if (swapped == 0)
+            break;
+    }
+}
 
 void TriABulleNom(Meds** med, int taille) {
     if (!med) {
@@ -101,7 +101,7 @@ void TriABulleNom(Meds** med, int taille) {
     for (i = 0; i < taille - 1; i++) {
         swapped = 0;
         for (j = 0; j < taille - i - 1; j++) {
-            if (strcmp(med[j]->datePer, med[j + 1]->datePer)>0) {
+            if (strcmp(med[j]->nom, med[j + 1]->nom)>0) {
                 swap(med[j], med[j + 1]);
                 swapped = 1;
             }
@@ -114,6 +114,8 @@ void TriABulleNom(Meds** med, int taille) {
     }
 }
 
+
+
 void recherche_dicho(int debut, int fin, Meds**med) {
     if (debut > fin) {
         return;
@@ -125,14 +127,15 @@ void recherche_dicho(int debut, int fin, Meds**med) {
     char valeur[50];
     scanf_s("%s", valeur,50);
     getchar();
-    while (1) {
+    while (debut<=fin) {
             mil = (debut+fin)/2;
-            if (strcmp(valeur, med[i]->nom) == 0)
+            if (strcmp(valeur, med[mil]->nom) == 0)
             {
                 trouve = 1;
+                break;
                
             }
-            else if(strcmp(valeur, med[i]->nom) > 0) {
+            else if(strcmp(valeur, med[mil]->nom) > 0) {
                 debut = mil + 1;
             }
             else {
@@ -140,7 +143,10 @@ void recherche_dicho(int debut, int fin, Meds**med) {
             }
     }
     if (trouve == 1) {
-        printf("\nle medicament %s est au rang %d ", valeur, mil);
+        printf("\nle medicament %s est au rang %d \n", valeur, mil+1);
+    }
+    else {
+        printf("il n'existe pas");
     }
 }
 

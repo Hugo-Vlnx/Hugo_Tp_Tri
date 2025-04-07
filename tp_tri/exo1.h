@@ -16,5 +16,6 @@ Meds* definirMed();
 Meds** creerMeds(int taille);
 void TriABulle(Meds** med, int taille);
 void afficherTab(Meds** med, int taille);
+void TriABulleNom(Meds** med, int taille);
 void recherche_dicho(int debut, int fin, Meds** med);
 #endif
