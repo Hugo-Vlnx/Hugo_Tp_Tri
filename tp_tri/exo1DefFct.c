@@ -53,7 +53,7 @@ void swap(Meds* medx, Meds* medy) {
 void afficherTab(Meds** med, int taille) {
     int i;
     for (i = 0; i < taille; i++)
-        printf("\n%s - fabriquer le %d, expire le %d - code %s - prix : %.2f ", med[i]->nom, med[i]->dateFab, med[i]->datePer, med[i]->code, med[i]->prix);
+        printf("\n%s - fabriquer le %d, expire le %d - code %s - prix : %.2f | en stock : %d - vendu : %d", med[i]->nom, med[i]->dateFab, med[i]->datePer, med[i]->code, med[i]->prix, med[taille - 1]->stock, med[taille - 1]->vendu);
     printf("\n");
 }
 
@@ -135,7 +135,7 @@ void TriABullePrix(Meds** med, int taille) {
             }
             
         }
-        printf("\nle plus cher est le %s - fabriquer le %d, expire le %d - code %s - prix : %.2f ", med[taille-1]->nom, med[taille - 1]->dateFab, med[taille - 1]->datePer, med[taille - 1]->code, med[taille - 1]->prix);
+        printf("\nle plus cher est le %s - fabriquer le %d, expire le %d - code %s - prix : %.2f | en stock : %d - vendu : %d", med[taille-1]->nom, med[taille - 1]->dateFab, med[taille - 1]->datePer, med[taille - 1]->code, med[taille - 1]->prix, med[taille-1]->stock, med[taille - 1]->vendu);
         printf("\n");
 
         if (swapped == 0)
@@ -145,7 +145,15 @@ void TriABullePrix(Meds** med, int taille) {
 
 
 
-void recherche_dicho(int debut, int fin, Meds**med) {
+void recherche_dicho(int debut, int fin, Meds**med,int taille) {
+    if (!med) {
+        return;
+    }
+    for (int a = 0; a < taille; a++) {
+        if (!med[a]) {
+            return;
+        }
+    }
     if (debut > fin) {
         return;
     }
@@ -179,3 +187,26 @@ void recherche_dicho(int debut, int fin, Meds**med) {
     }
 }
 
+void medVendu(Meds** med, int taille) {
+    if (!med) {
+        return;
+    }
+    for (int a = 0; a < taille; a++) {
+        if (!med[a]) {
+            return;
+        }
+    }
+    int totVendu = 0;
+    for (int i = 0; i < taille; i++) {
+        totVendu += med[i]->vendu;
+    }
+    int totStock = 0;
+    for (int j = 0; j < taille; j++) {
+        totStock += med[j]->stock;
+    }
+    int total = totVendu + totStock;
+    float pourcentage = totVendu * 100 / total;
+    printf("le taux de medicament vendu est de %f %%", pourcentage);
+
+
+}
