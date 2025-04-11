@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="exo1.h" />
+    <ClInclude Include="exo2-2.h" />
     <ClInclude Include="exo2.h" />
     <ClInclude Include="Q5.h" />
   </ItemGroup>
@@ -136,6 +137,8 @@
     <ClCompile Include="exo1Main.c" />
     <ClCompile Include="exo1Q5deffct.c" />
     <ClCompile Include="exo1Q5main.c" />
+    <ClCompile Include="exo2-2.c" />
+    <ClCompile Include="exo2-2def.c" />
     <ClCompile Include="exo2.c" />
     <ClCompile Include="exo2DefFct.c" />
   </ItemGroup>

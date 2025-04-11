@@ -24,6 +24,9 @@
     <ClInclude Include="exo2.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="exo2-2.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exo1Main.c">
@@ -42,6 +45,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="exo2DefFct.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="exo2-2.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="exo2-2def.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
