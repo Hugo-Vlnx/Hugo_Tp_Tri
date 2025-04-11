@@ -11,7 +11,7 @@ Meds** creerMeds( int taille) {
     return med;
 }
 
-Meds* definirMed() {
+Meds* definirMed(int taille) {
 
     Meds* med = malloc(sizeof(Meds));
 
@@ -38,6 +38,7 @@ Meds* definirMed() {
     printf("\ncombien en stock : ");
     scanf_s("\n%d", &med->stock);
     getchar;
+
     return med;
 
 
@@ -159,7 +160,7 @@ void recherche_dicho(int debut, int fin, Meds**med,int taille) {
     }
     int  trouve = 0;
     printf("\nquel med cherchez- vous ?");
-    int i = 0;
+    
     int mil;
     char valeur[50];
     scanf_s("%s", valeur,50);
@@ -209,4 +210,11 @@ void medVendu(Meds** med, int taille) {
     printf("le taux de medicament vendu est de %f %%", pourcentage);
 
 
+}
+void freeMed(Meds** med, int taille) {
+    for (int i = 0; i < taille; i++) {
+        free(med[i]);
+        med[i] = NULL;
+    }
+    free(med);
 }
